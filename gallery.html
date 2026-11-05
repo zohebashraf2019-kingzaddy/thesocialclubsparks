@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery — The Social Club | Sparks</title>
+  <meta name="description" content="Photos and reels from nights at The Social Club in Sparks, NV.">
+  <meta name="theme-color" content="#060609">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Manrope:wght@400;500;600;700;800&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="gallery">
+
+  <header class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Gallery</span>
+      <h1 class="display chrome">The Nights</h1>
+      <p class="lead">Costumes, dance floors, bottle parades and the people who make it a night worth remembering. Tagged at the club? Find yourself here.</p>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:20px">
+    <div class="wrap">
+      <div class="chips" id="chips"></div>
+      <div class="masonry" id="gallery"></div>
+      <div class="gallery-cta reveal">
+        <p>Got a great shot from the club? Tag <strong style="color:#fff">@thesocialclubsparks</strong> on Instagram or TikTok for a chance to be featured.</p>
+        <div class="socials" data-info="socials" style="margin:0"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reels" id="reels">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Video Wall</span>
+          <h2 class="display">Reels</h2>
+        </div>
+      </div>
+      <div class="reel-grid" id="reel-grid"></div>
+    </div>
+  </section>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  (function () {
+    const cats = ["All", ...new Set(SC.gallery.map(g => g.category).filter(Boolean))];
+    const chips = document.getElementById("chips");
+    chips.innerHTML = cats.map((c, i) => `<button class="chip ${i ? "" : "active"}" data-c="${c}">${c}</button>`).join("");
+    const el = document.getElementById("gallery");
+    const show = c => SC.renderGallery(el, c === "All" ? SC.gallery : SC.gallery.filter(g => g.category === c));
+    chips.onclick = e => {
+      const b = e.target.closest(".chip"); if (!b) return;
+      chips.querySelectorAll(".chip").forEach(x => x.classList.toggle("active", x === b));
+      show(b.dataset.c);
+    };
+    show("All");
+    SC.renderReels(document.getElementById("reel-grid"));
+    SC.observe();
+  })();
+  </script>
+</body>
+</html>

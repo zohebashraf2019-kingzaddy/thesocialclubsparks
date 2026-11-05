@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Events Calendar — The Social Club | Sparks</title>
+  <meta name="description" content="Upcoming nights at The Social Club in Sparks, NV — R&B, reggaeton, live Latin music, themed parties and afterparties. 21+.">
+  <meta name="theme-color" content="#060609">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Manrope:wght@400;500;600;700;800&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="events">
+
+  <header class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">What's On</span>
+      <h1 class="display chrome">The Calendar</h1>
+      <p class="lead">Every themed night, live act and afterparty at The Social Club. Tap a date to see the details — new nights are added as they're announced.</p>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:20px">
+    <div class="wrap cal-layout">
+      <div class="calendar reveal">
+        <div class="cal-top">
+          <h2 id="cal-title"></h2>
+          <div class="cal-nav">
+            <button class="today-btn" id="cal-today">Today</button>
+            <button id="cal-prev" aria-label="Previous month"></button>
+            <button id="cal-next" aria-label="Next month"></button>
+          </div>
+        </div>
+        <div class="cal-dow"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>
+        <div class="cal-grid" id="cal-grid"></div>
+        <div class="cal-legend">
+          <span><i style="background:linear-gradient(135deg,#3b5bff,#9b5cff)"></i>Upcoming night</span>
+          <span><i style="background:rgba(255,255,255,.12)"></i>Past night</span>
+          <span><i style="background:repeating-linear-gradient(135deg,#222 0 3px,#111 3px 6px)"></i>Closed (Mon · Tue)</span>
+        </div>
+      </div>
+      <aside class="cal-side" id="cal-detail" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="tabs" role="tablist">
+        <button class="active" data-tab="upcoming" role="tab">Upcoming</button>
+        <button data-tab="past" role="tab">Past Nights</button>
+      </div>
+      <div class="events-grid" id="ev-list"></div>
+    </div>
+  </section>
+
+  <section class="private" style="padding:110px 0">
+    <div class="private-bg"><img src="assets/img/gallery/dance-floor.jpg" alt="" loading="lazy"></div>
+    <div class="wrap reveal">
+      <span class="eyebrow">Promoters &amp; Hosts</span>
+      <h2 class="display">Want your night<br><em class="chrome">on this calendar?</em></h2>
+      <p class="lead">We partner with promoters, DJs and live acts. Pitch us your concept.</p>
+      <a class="btn btn-chrome" href="contact.html">Pitch an Event</a>
+    </div>
+  </section>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  (function () {
+    const H = SC.helpers, I = SC.icon;
+    const byDate = {};
+    SC.events.forEach(e => (byDate[e.date] = byDate[e.date] || []).push(e));
+    const key = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+
+    let view = new Date(H.today.getFullYear(), H.today.getMonth(), 1);
+    let selected = null;
+    const grid = document.getElementById("cal-grid");
+    document.getElementById("cal-prev").innerHTML = I.left;
+    document.getElementById("cal-next").innerHTML = I.right;
+
+    function renderCal() {
+      document.getElementById("cal-title").innerHTML = `${H.MONTHS[view.getMonth()]} <em>${view.getFullYear()}</em>`;
+      const start = new Date(view); start.setDate(1 - view.getDay());
+      let html = "";
+      for (let i = 0; i < 42; i++) {
+        const d = new Date(start); d.setDate(start.getDate() + i);
+        const k = key(d), evs = byDate[k] || [];
+        const cls = ["cal-cell"];
+        if (d.getMonth() !== view.getMonth()) cls.push("other");
+        if (+d === +H.today) cls.push("today");
+        if (d.getDay() === 1 || d.getDay() === 2) cls.push("closed");
+        if (evs.length) cls.push("has-event");
+        if (selected === k) cls.push("selected");
+        const tag = evs.length ? "button" : "div";
+        html += `<${tag} class="${cls.join(" ")}" data-k="${k}" ${evs.length ? `aria-label="${H.esc(evs.map(e => e.title).join(", "))} on ${H.fmtLong(d)}"` : ""}>
+          <span class="d">${d.getDate()}</span>
+          ${evs.map(e => `<span class="cal-ev ${H.isPast(e) ? "past" : ""}">${H.esc(e.title)}</span>`).join("")}
+        </${tag}>`;
+      }
+      grid.innerHTML = html;
+    }
+
+    function renderDetail(k) {
+      const box = document.getElementById("cal-detail");
+      const evs = k ? byDate[k] : null;
+      if (!evs) {
+        const next = H.upcoming[0];
+        box.innerHTML = next ? detailCard(next, "Next Up") : `
+          <div class="detail-card"><div class="detail-empty">
+            <span class="eyebrow">Stay Tuned</span><h3>New dates coming</h3>
+            <p>Follow us for the next announcement.</p>
+            <a class="btn" href="${SC.info.socials[0].url}" target="_blank" rel="noopener">${I.instagram} Instagram</a>
+          </div></div>`;
+        return;
+      }
+      box.innerHTML = evs.map(e => detailCard(e)).join("");
+    }
+
+    function detailCard(e, label) {
+      const d = H.parseDate(e.date), p = H.isPast(e);
+      let cta = "";
+      if (!p) {
+        if (e.status === "door-only") cta = `<a class="btn btn-chrome" href="${SC.info.mapsUrl}" target="_blank" rel="noopener">${I.pin} Tickets at the Door</a>` + (e.ticketsUrl ? `<a class="btn" href="${e.ticketsUrl}" target="_blank" rel="noopener">Ticket Page</a>` : "");
+        else if (e.ticketsUrl) cta = `<a class="btn btn-chrome" href="${e.ticketsUrl}" target="_blank" rel="noopener">${I.ticket} Get Tickets</a>`;
+        cta += `<a class="btn" href="${SC.info.socials[0].url}" target="_blank" rel="noopener">${I.instagram} DM for Bottle Service</a>`;
+      }
+      return `
+        <div class="detail-card" id="${H.esc(e.id)}">
+          <img src="${e.image}" alt="${H.esc(e.title)}">
+          <div class="inner">
+            <span class="eyebrow">${label || (p ? "Past Night" : e.genre || "Event")}</span>
+            <h3>${H.esc(e.title)}</h3>
+            <div class="when">${H.fmtLong(d)} · ${H.esc(e.time || "")}</div>
+            ${e.statusNote && !p ? `<div class="door-banner" style="margin:16px 0 0"><span class="pulse"></span><div><strong style="font-size:14px">${H.esc(e.statusNote)}</strong></div></div>` : ""}
+            <p>${H.esc(e.description || e.subtitle || "")}</p>
+            ${e.hostedBy ? `<p style="color:#fff;font-size:13px">Hosted by ${H.esc(e.hostedBy)}</p>` : ""}
+            <div style="display:grid;gap:10px">${cta}</div>
+          </div>
+        </div>`;
+    }
+
+    grid.addEventListener("click", ev => {
+      const c = ev.target.closest(".has-event"); if (!c) return;
+      selected = c.dataset.k; renderCal(); renderDetail(selected);
+      if (innerWidth < 1080) document.getElementById("cal-detail").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    document.getElementById("cal-prev").onclick = () => { view.setMonth(view.getMonth() - 1); renderCal(); };
+    document.getElementById("cal-next").onclick = () => { view.setMonth(view.getMonth() + 1); renderCal(); };
+    document.getElementById("cal-today").onclick = () => { view = new Date(H.today.getFullYear(), H.today.getMonth(), 1); selected = null; renderCal(); renderDetail(null); };
+
+    // deep link: events.html#event-id
+    const hash = decodeURIComponent(location.hash.slice(1));
+    const linked = SC.events.find(e => e.id === hash);
+    if (linked) { const d = H.parseDate(linked.date); view = new Date(d.getFullYear(), d.getMonth(), 1); selected = linked.date; }
+    renderCal(); renderDetail(selected);
+    addEventListener("hashchange", () => {
+      const e = SC.events.find(x => x.id === decodeURIComponent(location.hash.slice(1))); if (!e) return;
+      const d = H.parseDate(e.date); view = new Date(d.getFullYear(), d.getMonth(), 1); selected = e.date;
+      renderCal(); renderDetail(selected);
+      document.querySelector(".calendar").scrollIntoView({ behavior: "smooth" });
+    });
+
+    // list tabs
+    const list = document.getElementById("ev-list");
+    function renderList(tab) {
+      const items = tab === "past" ? H.past : H.upcoming;
+      list.innerHTML = items.map(SC.eventCard).join("") + (tab === "upcoming" ? SC.soonCard : "");
+      SC.observe(list);
+    }
+    document.querySelectorAll("[data-tab]").forEach(b => b.onclick = () => {
+      document.querySelectorAll("[data-tab]").forEach(x => x.classList.toggle("active", x === b));
+      renderList(b.dataset.tab);
+    });
+    renderList("upcoming");
+  })();
+  </script>
+</body>
+</html>

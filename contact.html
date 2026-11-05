@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Private Events & Contact — The Social Club | Sparks</title>
+  <meta name="description" content="Host your birthday, promoter night, corporate mixer or private buyout at The Social Club in Sparks, NV. Send an inquiry.">
+  <meta name="theme-color" content="#060609">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Manrope:wght@400;500;600;700;800&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contact">
+
+  <header class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Private Events · Bookings · Contact</span>
+      <h1 class="display chrome">Host With Us</h1>
+      <p class="lead">Birthdays, promoter nights, private buyouts, corporate mixers and more. Tell us about your night and our events team will get back to you.</p>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:20px">
+    <div class="wrap contact-grid">
+      <form class="form-card reveal" id="inquiry" novalidate>
+        <span class="eyebrow">Event Inquiry</span>
+        <h2 class="display" style="font-size:clamp(30px,4vw,46px);margin:12px 0 28px">Let's plan your <em>night</em></h2>
+
+        <div class="form-grid">
+          <div class="field full">
+            <label>What are you planning?</label>
+            <div class="type-picker">
+              <input type="radio" name="type" id="t1" value="Birthday / Celebration" checked><label for="t1">Birthday / Celebration</label>
+              <input type="radio" name="type" id="t2" value="VIP Bottle Service"><label for="t2">VIP Bottle Service</label>
+              <input type="radio" name="type" id="t3" value="Private Party / Buyout"><label for="t3">Private Party / Buyout</label>
+              <input type="radio" name="type" id="t4" value="Promoter / DJ Night"><label for="t4">Promoter / DJ Night</label>
+              <input type="radio" name="type" id="t5" value="Corporate Event"><label for="t5">Corporate</label>
+              <input type="radio" name="type" id="t6" value="General Question"><label for="t6">Something else</label>
+            </div>
+          </div>
+          <div class="field"><label for="name">Full name *</label><input id="name" name="name" autocomplete="name" required placeholder="Your name"></div>
+          <div class="field"><label for="phone">Phone *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="(775) 000-0000"></div>
+          <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@email.com"></div>
+          <div class="field"><label for="date">Preferred date</label><input id="date" name="date" type="date"></div>
+          <div class="field"><label for="guests">Guest count</label>
+            <select id="guests" name="guests">
+              <option value="">Select</option><option>Under 10</option><option>10 – 25</option><option>25 – 50</option><option>50 – 100</option><option>100 – 200</option><option>200+ (full buyout)</option>
+            </select>
+          </div>
+          <div class="field"><label for="ig">Instagram (optional)</label><input id="ig" name="instagram" placeholder="@yourhandle"></div>
+          <div class="field full"><label for="msg">Tell us about the night *</label><textarea id="msg" name="message" required placeholder="Theme, music, bottles, time frame, anything special..."></textarea></div>
+          <div class="field full">
+            <label class="check"><input type="checkbox" id="age" name="age21" required> I confirm that I and all guests will be 21 or older with valid ID.</label>
+          </div>
+          <!-- honeypot -->
+          <input type="text" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+        </div>
+        <button class="btn btn-chrome" type="submit" style="margin-top:26px;width:100%">Send Inquiry</button>
+        <div class="form-status" id="status" role="status"></div>
+      </form>
+
+      <div class="info-stack">
+        <div class="info-card reveal d1">
+          <span class="eyebrow">Fastest Reply</span>
+          <h3>DM us on Instagram</h3>
+          <p>Bottle service and same-week tables are fastest through DM.</p>
+          <div class="socials" data-info="socials"></div>
+        </div>
+        <div class="info-card reveal d2">
+          <span class="eyebrow">Visit</span>
+          <h3>906 Victorian Ave</h3>
+          <p>Victorian Square · Sparks, NV 89431</p>
+          <p id="contact-lines"></p>
+          <ul class="hours-list" data-hours></ul>
+          <a class="btn" data-info="maps" target="_blank" rel="noopener" style="margin-top:20px;width:100%">Get Directions</a>
+        </div>
+        <div class="map-frame reveal d3" style="min-height:260px">
+          <iframe data-info="map-embed" title="Map to The Social Club" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap" style="max-width:860px">
+      <div style="text-align:center;margin-bottom:30px">
+        <span class="eyebrow">Good to Know</span>
+        <h2 class="display" style="font-size:clamp(34px,5vw,58px);margin-top:12px">FAQ</h2>
+      </div>
+      <div class="faq reveal">
+        <details><summary>Is The Social Club 21+?</summary><p>Yes — The Social Club is 21 and over at all times. Every guest needs a valid, government-issued photo ID at the door.</p></details>
+        <details><summary>RNB Reno is sold out — can I still get in?</summary><p>Online tickets are sold out, but a limited number of tickets are released at the door. They're first come, first served — arrive early.</p></details>
+        <details><summary>How do I reserve bottle service?</summary><p>Send us a DM on Instagram or submit the inquiry form above with your date and party size. We'll confirm your section and bottle options.</p></details>
+        <details><summary>Can I rent the whole venue?</summary><p>Yes. We host private buyouts, especially on Monday and Tuesday when we're closed to the public. Send an inquiry with your guest count and date.</p></details>
+        <details><summary>I'm a promoter or DJ — how do I pitch a night?</summary><p>Choose "Promoter / DJ Night" in the form and tell us your concept, audience and past events. Include your Instagram so we can check out your work.</p></details>
+        <details><summary>What are your hours?</summary><p>Sunday, Wednesday and Thursday 4 PM – 12 AM. Friday and Saturday 4 PM – 3 AM. Closed Monday and Tuesday (available for private events).</p></details>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  (function () {
+    const info = SC.info;
+    document.getElementById("contact-lines").innerHTML = [
+      info.phone ? `<a class="link" href="tel:${info.phone.replace(/[^\d+]/g, "")}">${info.phone}</a>` : "",
+      info.email ? `<a class="link" href="mailto:${info.email}">${info.email}</a>` : ""
+    ].filter(Boolean).join(" · ");
+
+    const form = document.getElementById("inquiry");
+    const status = document.getElementById("status");
+    const setStatus = (cls, html) => { status.className = "form-status " + cls; status.innerHTML = html; };
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form));
+      if (data.company) return; // bot
+      const missing = ["name", "phone", "email", "message"].filter(k => !String(data[k] || "").trim());
+      if (missing.length || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email || "")) {
+        setStatus("err", "Please fill in your name, phone, a valid email and a few details about the night.");
+        return;
+      }
+      if (!form.age21.checked) { setStatus("err", "Please confirm all guests will be 21+."); return; }
+
+      const btn = form.querySelector("button[type=submit]");
+      btn.disabled = true; btn.textContent = "Sending…";
+      try {
+        const res = await fetch(SC.contact.endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+        if (!res.ok) throw new Error("send failed");
+        form.reset();
+        setStatus("ok", "<strong>Inquiry sent.</strong> Thank you — our events team will reach out shortly. For faster bottle-service replies, DM us on Instagram.");
+      } catch (err) {
+        // Fallback: email app (if configured) or Instagram DM with a copy of the message
+        const body = `Event type: ${data.type}\nName: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nDate: ${data.date || "-"}\nGuests: ${data.guests || "-"}\nInstagram: ${data.instagram || "-"}\n\n${data.message}`;
+        if (info.email) {
+          location.href = `mailto:${info.email}?subject=${encodeURIComponent("Event inquiry — " + data.type)}&body=${encodeURIComponent(body)}`;
+          setStatus("ok", "Opening your email app to send the inquiry…");
+        } else {
+          try { await navigator.clipboard.writeText(body); } catch (_) {}
+          setStatus("ok", `Almost there — your message is copied. <a class="link" href="${info.socials[0].url}" target="_blank" rel="noopener" style="color:#fff;border-bottom:1px solid">Open Instagram</a> and paste it in a DM to @thesocialclubsparks.`);
+        }
+      } finally {
+        btn.disabled = false; btn.textContent = "Send Inquiry";
+      }
+    });
+    SC.observe();
+  })();
+  </script>
+</body>
+</html>

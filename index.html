@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Social Club | Sparks — Nightlife, Events & Bottle Service</title>
+  <meta name="description" content="The Social Club in Sparks, NV — 21+ nightlife in Victorian Square. R&B nights, reggaeton parties, live music, signature cocktails, VIP bottle service and private events.">
+  <meta name="theme-color" content="#060609">
+  <meta property="og:title" content="The Social Club | Sparks">
+  <meta property="og:description" content="21+ nightlife in Victorian Square, Sparks NV. Themed nights, live music, VIP bottle service & private events.">
+  <meta property="og:image" content="assets/img/og-icon.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Manrope:wght@400;500;600;700;800&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NightClub",
+    "name": "The Social Club",
+    "address": { "@type": "PostalAddress", "streetAddress": "906 Victorian Ave", "addressLocality": "Sparks", "addressRegion": "NV", "postalCode": "89431", "addressCountry": "US" },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday","Wednesday","Thursday"], "opens": "16:00", "closes": "00:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "16:00", "closes": "03:00" }
+    ],
+    "sameAs": ["https://www.instagram.com/thesocialclubsparks/", "https://www.tiktok.com/@thesocialclubsparks"]
+  }
+  </script>
+</head>
+<body data-page="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-media">
+      <video src="assets/video/reel-discount.mp4" poster="assets/img/poster-discount.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+    </div>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Victorian Square · Sparks, Nevada · 21+</span>
+      <h1 style="margin:0"><img class="hero-logo" src="assets/img/logo-white.png" alt="The Social Club"></h1>
+      <p class="hero-tag">Where Sparks comes out after dark.</p>
+      <div class="hero-actions">
+        <a class="btn btn-chrome" href="#featured">RNB Reno · Nov 7</a>
+        <a class="btn" href="events.html">Events Calendar</a>
+        <a class="btn" href="contact.html">Book a Private Event</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>Fri · Sat</strong> till 3 AM</div>
+        <div><strong>Sun · Wed · Thu</strong> till 12 AM</div>
+        <div><strong>906</strong> Victorian Ave</div>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"></div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>R&amp;B Nights</span><span><em>Reggaeton &amp; Perreo</em></span><span>Live Latin Music</span><span><em>Signature Cocktails</em></span><span>VIP Bottle Service</span><span><em>Themed Parties</em></span><span>Private Events</span>
+      <span>R&amp;B Nights</span><span><em>Reggaeton &amp; Perreo</em></span><span>Live Latin Music</span><span><em>Signature Cocktails</em></span><span>VIP Bottle Service</span><span><em>Themed Parties</em></span><span>Private Events</span>
+    </div>
+  </div>
+
+  <!-- FEATURED: RNB RENO -->
+  <section class="section feature" id="featured">
+    <div class="wrap feature-grid">
+      <div class="reveal">
+        <span class="eyebrow">Headline Night</span>
+        <h2 class="display feature-title chrome" id="f-title">RNB RENO</h2>
+        <p class="feature-sub" id="f-sub"></p>
+        <div class="door-banner" id="f-door">
+          <span class="pulse"></span>
+          <div><strong>Sold out online — but the night's not over.</strong><small>A limited number of tickets will be available at the door. Arrive early.</small></div>
+        </div>
+        <div class="countdown" id="f-count" aria-live="off"></div>
+        <ul class="feature-facts" id="f-facts"></ul>
+        <div class="feature-actions" id="f-actions"></div>
+      </div>
+      <div class="feature-flyer reveal d2">
+        <span class="stamp">Sold Out Online</span>
+        <img id="f-img" src="assets/img/flyer-rnb-reno.jpg" alt="RNB Reno flyer">
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- UPCOMING -->
+  <section class="section" id="upcoming">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">On the Calendar</span>
+          <h2 class="display">Upcoming <em>nights</em></h2>
+        </div>
+        <a class="btn" href="events.html">Full Calendar ${arrow}</a>
+      </div>
+      <div class="events-grid" id="home-events"></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">The Experience</span>
+          <h2 class="display">More than a bar.<br><em class="chrome">A social house.</em></h2>
+        </div>
+        <p class="lead">Rotating themed nights, guest DJs and live acts, a seasonal cocktail menu and bottle service that makes any table the main event.</p>
+      </div>
+      <div class="exp-grid">
+        <div class="exp-card reveal d1"><span class="num">01</span><h3>Themed Nights</h3><p>R&amp;B showcases, old-school vs new-school reggaeton, Halloween costume parties, festival afterparties — every weekend has a different energy.</p></div>
+        <div class="exp-card reveal d2"><span class="num">02</span><h3>Live Music &amp; DJs</h3><p>Live Latin bands and Norteño groups, award-winning DJs, and genre-to-genre open-format sets from Top 40 to Country.</p></div>
+        <div class="exp-card reveal d3"><span class="num">03</span><h3>VIP Bottle Service</h3><p>Reserve a section for birthdays, celebrations or just because. Bottle service available on request — DM us or send an inquiry.</p></div>
+      </div>
+      <div class="drinks">
+        <div class="reveal">
+          <span class="eyebrow">Behind the Bar</span>
+          <h2 class="display" style="font-size:clamp(34px,4.6vw,58px);margin-top:14px">Signature <em>pours</em></h2>
+          <p class="lead" style="margin-top:16px">A seasonal menu that changes with the theme. A few house favorites:</p>
+        </div>
+        <ul class="drink-list reveal d2" id="drinks"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- REELS -->
+  <section class="section reels" id="reels">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Video Wall</span>
+          <h2 class="display">Inside <em>the Club</em></h2>
+        </div>
+        <p class="lead" style="max-width:40ch">Tap the speaker for sound, or expand to watch full screen.</p>
+      </div>
+      <div class="reel-grid" id="reel-grid"></div>
+    </div>
+  </section>
+
+  <!-- GALLERY PREVIEW -->
+  <section class="section" id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Gallery</span>
+          <h2 class="display">Seen at <em>the Social</em></h2>
+        </div>
+        <a class="btn" href="gallery.html">Full Gallery ${arrow}</a>
+      </div>
+      <div class="masonry" id="home-gallery"></div>
+    </div>
+  </section>
+
+  <!-- PRIVATE EVENTS CTA -->
+  <section class="private">
+    <div class="private-bg"><img src="assets/img/gallery/fantasias-stage.jpg" alt="" loading="lazy"></div>
+    <div class="wrap reveal">
+      <span class="eyebrow">Host With Us</span>
+      <h2 class="display">Your night.<br><em class="chrome">Our house.</em></h2>
+      <p class="lead">Birthdays, promoter nights, corporate mixers, album releases and full buyouts. Tell us the vibe — we'll handle the bar, the sound and the room.</p>
+      <div class="private-tags">
+        <span>Birthdays</span><span>Promoter Nights</span><span>Private Buyouts</span><span>Corporate</span><span>Bachelor / Bachelorette</span><span>Release Parties</span>
+      </div>
+      <a class="btn btn-chrome" href="contact.html">Start an Inquiry</a>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="section" id="visit" style="padding-top:0">
+    <div class="wrap visit-grid">
+      <div class="visit-card reveal">
+        <span class="eyebrow">Find Us</span>
+        <h2 class="display" style="font-size:clamp(34px,4.4vw,54px);margin-top:14px">906 Victorian Ave</h2>
+        <p class="lead" style="margin-top:8px">In the heart of Victorian Square, Sparks NV 89431. Valid ID required — 21+ only.</p>
+        <ul class="hours-list" data-hours></ul>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
+          <a class="btn btn-chrome" data-info="maps" target="_blank" rel="noopener">Get Directions</a>
+          <div class="socials" data-info="socials" style="margin:0"></div>
+        </div>
+      </div>
+      <div class="map-frame reveal d2">
+        <iframe data-info="map-embed" title="Map to The Social Club" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  (function () {
+    const H = SC.helpers, I = SC.icon;
+    // swap ${arrow} placeholders for icons
+    document.querySelectorAll(".btn").forEach(b => { b.innerHTML = b.innerHTML.replace("${arrow}", I.arrow); });
+
+    // featured
+    const f = SC.events.find(e => e.featured && !H.isPast(e)) || H.upcoming[0];
+    const feat = document.getElementById("featured");
+    if (!f) { feat.style.display = "none"; }
+    else {
+      const d = H.parseDate(f.date);
+      document.getElementById("f-title").textContent = f.title;
+      document.getElementById("f-sub").textContent = f.subtitle || "";
+      document.getElementById("f-img").src = f.image;
+      document.getElementById("f-img").alt = f.title + " flyer";
+      if (f.status !== "door-only" && f.status !== "sold-out") {
+        document.getElementById("f-door").style.display = "none";
+        document.querySelector(".feature-flyer .stamp").style.display = "none";
+      }
+      document.getElementById("f-facts").innerHTML = [
+        ["When", H.fmtLong(d) + " · " + (f.time || "")],
+        ["Where", "The Social Club · Sparks, NV"],
+        f.hostedBy ? ["Hosted by", f.hostedBy] : null,
+        ["Entry", f.statusNote || "21+ · Valid ID"],
+        ["Bottles", "Bottle service available — DM to reserve"]
+      ].filter(Boolean).map(([k, v]) => `<li><span>${k}</span><span>${H.esc(v)}</span></li>`).join("");
+      const ig = SC.info.socials[0].url;
+      document.getElementById("f-actions").innerHTML =
+        (f.status === "door-only"
+          ? `<a class="btn btn-chrome" href="${SC.info.mapsUrl}" target="_blank" rel="noopener">${I.pin} Tickets at the Door</a>`
+          : `<a class="btn btn-chrome" href="${f.ticketsUrl || SC.info.ticketsUrl}" target="_blank" rel="noopener">${I.ticket} Get Tickets</a>`) +
+        `<a class="btn" href="${ig}" target="_blank" rel="noopener">${I.instagram} DM for Bottles</a>` +
+        (f.ticketsUrl ? `<a class="btn" href="${f.ticketsUrl}" target="_blank" rel="noopener">Ticket Page</a>` : "");
+      SC.countdown(document.getElementById("f-count"), f);
+    }
+
+    // upcoming (skip the featured one if there are others)
+    const list = H.upcoming.filter(e => !f || e.id !== f.id || H.upcoming.length === 1).slice(0, 3);
+    const recent = H.past.slice(0, Math.max(0, 2 - list.length));
+    document.getElementById("home-events").innerHTML =
+      list.map(SC.eventCard).join("") + SC.soonCard + recent.map((e, i) => SC.eventCard(e, i + 1)).join("");
+
+    // drinks
+    document.getElementById("drinks").innerHTML = SC.drinks.map(d => `<li><b>${H.esc(d.name)}</b><i></i><span>${H.esc(d.notes)}</span></li>`).join("");
+
+    SC.renderReels(document.getElementById("reel-grid"));
+    SC.renderGallery(document.getElementById("home-gallery"), SC.gallery.filter(g => g.category !== "Flyers").slice(0, 5));
+    SC.observe();
+  })();
+  </script>
+</body>
+</html>
