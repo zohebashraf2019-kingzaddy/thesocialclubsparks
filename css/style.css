@@ -321,7 +321,7 @@ h3 { font-family: var(--serif); font-weight: 500; }
 
 /* ---------- video wall ---------- */
 .reels { background: var(--ink-2); overflow: hidden; }
-.reel-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: start; }
+.reel-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; align-items: start; }
 .reel {
   position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 9/16;
   background: #000; border: 1px solid var(--line);

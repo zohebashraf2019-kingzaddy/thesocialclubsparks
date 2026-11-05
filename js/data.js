@@ -108,6 +108,7 @@ SC.events = [
    Drop .mp4 files in assets/video/ and a poster frame in assets/img/.
 ------------------------------------------ */
 SC.reels = [
+  { src: "assets/video/reel-fantasias.mp4",     poster: "assets/img/poster-fantasias.jpg",     caption: "¿Te gusta el reggaeton? Fantasías", tag: "Reggaeton" },
   { src: "assets/video/reel-discount.mp4",      poster: "assets/img/poster-discount.jpg",      caption: "Behind the bar",          tag: "The Bar" },
   { src: "assets/video/reel-great-night.mp4",   poster: "assets/img/poster-great-night.jpg",   caption: "Great night, great venue", tag: "Live" },
   { src: "assets/video/reel-rib-afterparty.mp4",poster: "assets/img/poster-rib-afterparty.jpg",caption: "RCO Afterparty",           tag: "Afterparty" }
